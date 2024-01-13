@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <style>
+    button{
+     border: none;
+      padding: 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      background: grey;
+    }
+  </style>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button onclick="clicked()">Add item</button>
+    </div>
+
+    <ul id="shoppingList">
+        
+    </ul>
+
+    <script>
+      //Creating Variables for the refferences given
+       const shoppingList =  document.getElementById("shoppingList");
+       const inputElement = document.querySelector("#item");
+       const addButton = document.querySelector("button")[0];
+
+      //Function that will run in response to the button being clicked
+        function clicked() {
+  
+          var inputElement = document.querySelector("#item").value;
+          
+        //Creating New Elements
+          var listItem = document.createElement("li");
+          var span = document.createElement("span");
+          var button2 = document.createElement("button");
+
+         span.textContent = inputElement;
+          
+         
+          listItem.appendChild(span);
+          listItem.appendChild(button2);
+
+          shoppingList.appendChild(listItem);
+
+          var del = button2.textContent = "Delete";
+          button2.style.fontSize = "18px"
+          button2.style.color = "color"
+          
+          function delItem() {
+            button2.addEventListener("click", function (){
+              shoppingList.removeChild(listItem)
+            });
+          }
+          delItem()
+        }
+
+      inputElement.focus()
+
+      inputElement.style.padding = "7px";
+      inputElement.style.borderRadius = "10px";
+      inputElement.style.fontSize = "18px"
+
+      
+      
+    </script>
+  </body>
+</html>
